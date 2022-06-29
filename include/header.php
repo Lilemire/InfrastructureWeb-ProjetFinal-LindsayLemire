@@ -29,9 +29,9 @@
             Nouvelles
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="nouvelles_categorie.php">Catégorie ? (le nom de la catégorie doit apparaître)</a></li>
-            <li><a class="dropdown-item" href="nouvelles_categorie.php">Catégorie ? (le nom de la catégorie doit apparaître)</a></li>
-            <li><a class="dropdown-item" href="nouvelles_categorie.php">...</a></li>
+            <li><a class="dropdown-item" href="general.php">Général</a></li>
+            <li><a class="dropdown-item" href="consignes.php">Consignes</a></li>
+            <li><a class="dropdown-item" href="loremipsum.php">Lorem ipsum</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="nouvelles.php">Toutes les nouvelles</a></li>
           </ul>
