@@ -9,7 +9,7 @@ include_once('controlleurs/nouvelles.php');?>
     <!-- Marketing Icons Section -->
     <?php
     $controlleurNouvelles=new ControlleursNouvelles;
-    $controlleurNouvelles->afficherFiche();
+    $controlleurNouvelles->afficherCartesSurAccueil();
     ?>
 
 <?php include_once('include/footer.php'); ?>

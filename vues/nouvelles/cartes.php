@@ -8,7 +8,7 @@
         <p class="card-text"><?=$nouvelle->description_courte?></p>
       </div>
       <div class="card-footer">
-        <a href="nouvelle.php" class="btn btn-primary">Plus d'information</a>
+        <a href="nouvelle.php?id=<?= $nouvelle->id ?>" class="btn btn-primary">Plus d'information</a>
       </div>
     </div>
     </div>

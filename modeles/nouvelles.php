@@ -2,7 +2,7 @@
 
 require_once "./include/config.php";
 
-class nouvelles_obtenir3 {
+class modeles_nouvelles {
     public $id;
     public $titre;
     public $description_courte;
@@ -41,14 +41,54 @@ class nouvelles_obtenir3 {
         $resultatRequete = $mysqli->query("SELECT * FROM nouvelles WHERE actif = 1 ORDER BY date_nouvelle DESC LIMIT 3");
 
         foreach ($resultatRequete as $row) {
-            $liste [] = new nouvelles_obtenir3($row['id'], $row['titre'], $row['description_courte'], $row['description_longue'], $row['date_nouvelle'], $row['actif'], $row['fk_categorie']);
+            $liste [] = new modeles_nouvelles($row['id'], $row['titre'], $row['description_courte'], $row['description_longue'], $row['date_nouvelle'], $row['actif'], $row['fk_categorie']);
+        }
+
+        return $liste;
+
+    }
+
+    public static function ObtenirUne($id) {
+            $mysqli = self::connecter();
+
+            if ($resultatRequete = $mysqli->prepare("SELECT * FROM nouvelles WHERE id = ?")){
+                $requete->bind_param("s", $id);
+
+                $requete->execute();
+
+                $result = $requete->get_result();
+
+                if($resultatRequete = $result->fetch_assoc()) {
+                    $uneNouvelle = new une_nouvelle($resultatRequete['id'], $resultatRequete['titre'], $resultatRequete['description_courte'], $resultatRequete['description_longue'], $resultatRequete['date_nouvelle'], $resultatRequete['actif'], $resultatRequete['fk_categorie']);
+                } else {
+
+                    return null;
+
+                }
+
+                $requete->close();
+            } else {
+                echo "Une erreur a été détectée dans la requête utilisée : ";
+                echo $mysqli->error;
+                return null;
+            }
+
+            return $uneNouvelle;
+
+    }
+
+    public static function ObtenirToutesActive() {
+        $liste = [];
+        $mysqli = self::connecter();
+
+        $resultatRequete = $mysqli->query("SELECT * FROM `nouvelles` WHERE actif = 1 ORDER BY date_nouvelle;");
+
+        foreach ($resultatRequete as $ul) {
+            $liste [] = new nouvelles_active($ul['id'], $ul['titre'], $ul['description_courte'], $ul['description_longue'], $ul['date_nouvelle'], $ul['actif'], $ul['fk_categorie']);
         }
 
         return $liste;
 
     }
 }
-
 ?>
-
-obteniractive

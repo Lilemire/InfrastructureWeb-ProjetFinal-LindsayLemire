@@ -11,3 +11,4 @@
 
 <?php include_once('include/footer.php'); ?>
 
+/SELECT date_heures, prenom, nom FROM rendez_vous INNER JOIN clients ON rendez_vous.id_clients = clients.id
