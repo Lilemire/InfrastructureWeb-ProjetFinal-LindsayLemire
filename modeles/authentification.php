@@ -62,8 +62,8 @@ class modele_authentification {
 
         if ($requete = $mysqli -> prepare("INSERT INTO utilisateurs(code_utilisateur, mot_de_passe, courriel) VALUES(?, ?, ?)")) {
 
-            echo $mot_de_passe / "<br>";
-            echo password_hash("test", PASSWORD_DEFAULT) . "<br>";
+            //echo $mot_de_passe / "<br>";
+            //echo password_hash("test", PASSWORD_DEFAULT) . "<br>";
 
             $mot_de_passe_crype = password_hash($mot_de_passe, PASSWORD_DEFAULT);
 

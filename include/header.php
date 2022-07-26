@@ -19,6 +19,13 @@
   <nav class="navbar navbar-expand-lg bg-light">
   <div class="container">
     <a class="navbar-brand" href="index.php">Accueil</a>
+
+    <!-- AIDE -->
+     <?php if(isset($_SESSION["utilisateur"])) { ?>
+      <li><a href="membre.php">section membres</a></li>
+    <?php } ?>
+    <? require 'vues/authentification/formulaireAuthentification.php'; ?>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
