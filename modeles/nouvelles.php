@@ -51,7 +51,7 @@ class modeles_nouvelles {
     public static function ObtenirUne($id) {
             $mysqli = self::connecter();
 
-            if ($resultatRequete = $mysqli->prepare("SELECT * FROM nouvelles WHERE id = ?")){
+            if ($requete = $mysqli->prepare("SELECT * FROM nouvelles WHERE id = ?")){
                 $requete->bind_param("s", $id);
 
                 $requete->execute();
@@ -59,7 +59,7 @@ class modeles_nouvelles {
                 $result = $requete->get_result();
 
                 if($resultatRequete = $result->fetch_assoc()) {
-                    $uneNouvelle = new une_nouvelle($resultatRequete['id'], $resultatRequete['titre'], $resultatRequete['description_courte'], $resultatRequete['description_longue'], $resultatRequete['date_nouvelle'], $resultatRequete['actif'], $resultatRequete['fk_categorie']);
+                    $uneNouvelle = new modeles_nouvelles($resultatRequete['id'], $resultatRequete['titre'], $resultatRequete['description_courte'], $resultatRequete['description_longue'], $resultatRequete['date_nouvelle'], $resultatRequete['actif'], $resultatRequete['fk_categorie']);
                 } else {
 
                     return null;
@@ -77,18 +77,25 @@ class modeles_nouvelles {
 
     }
 
-    public static function ObtenirToutesActive() {
+    public static function ObtenirActive() {
         $liste = [];
         $mysqli = self::connecter();
 
         $resultatRequete = $mysqli->query("SELECT * FROM `nouvelles` WHERE actif = 1 ORDER BY date_nouvelle;");
 
         foreach ($resultatRequete as $ul) {
-            $liste [] = new nouvelles_active($ul['id'], $ul['titre'], $ul['description_courte'], $ul['description_longue'], $ul['date_nouvelle'], $ul['actif'], $ul['fk_categorie']);
+            $liste [] = new modeles_nouvelles($ul['id'], $ul['titre'], $ul['description_courte'], $ul['description_longue'], $ul['date_nouvelle'], $ul['actif'], $ul['fk_categorie']);
         }
 
         return $liste;
 
     }
+
+   /* public static function ObtenirLorem() {
+        $liste = [];
+        $mysqli = self::connecter();
+
+        $resultatRequete = $mysqli->query("")
+    }*/
 }
 ?>

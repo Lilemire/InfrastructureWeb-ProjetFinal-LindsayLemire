@@ -8,7 +8,7 @@ include_once('controlleurs/nouvelles.php');?>
 
     <!-- Marketing Icons Section -->
     <?php
-    $controlleurNouvelles=new ControlleursNouvelle;
+    $controlleurNouvelles=new ControlleursNouvelles;
     $controlleurNouvelles->afficherUneFiche();
     ?>
 

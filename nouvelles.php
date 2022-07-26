@@ -8,8 +8,8 @@ include_once('controlleurs/nouvelles.php'); ?>
 	<!-- Afficher la liste de toutes nouvelles ACTIVES en ordre chronologique (de la plus récente à la plus ancienne) -->
 	<!-- L'affichage doit être le même que celui utilisé pour l'affichage des nouvelles par catégorie -->
 	<?php
-     $controlleursNouvellesActive=new ControlleursNouvellesActive;
-     $controlleursNouvellesActive->ControlleursNouvellesActive();
+     $controlleursNouvellesActive=new ControlleursNouvelles;
+     $controlleursNouvellesActive->afficherListe();
     ?>
   </div>
 
