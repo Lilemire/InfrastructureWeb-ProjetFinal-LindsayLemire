@@ -11,7 +11,7 @@ include_once('controlleurs/nouvelles.php');?>
     $controlleurNouvelles=new ControlleursNouvelles;
     $controlleurNouvelles->afficherCartesSurAccueil();
     
-echo password_hash("test", PASSWORD_DEFAULT);
+    echo password_hash("test", PASSWORD_DEFAULT);
     ?>
 
 

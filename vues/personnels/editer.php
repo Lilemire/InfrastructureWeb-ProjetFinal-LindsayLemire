@@ -1,13 +1,4 @@
-<?php include_once('include/header.php');
-require_once 'controlleurs/personnels.php';
-
-    if (isset($_POST['boutonAjouter'])) {
-        $controlleursPersonnels=new ControlleursPersonnels;
-        $controlleursPersonnels->ajouter();
-    }
-?>
-
-<h1>Ajouter</h1>
+<h1>Éditer</h1>
 
 <form method="POST">
     <div>
@@ -32,9 +23,7 @@ require_once 'controlleurs/personnels.php';
             <input type="email" id="courriel" name="courriel" required minlength="10" maxlength="50">
         </div>
         <div>
-            <input type="submit" name="boutonAjouter" value="Ajouter">
+            <input type="submit" name="boutonEditer" value="Editer">
         </div>
     </div>
 </form>
-
-<?php include_once('include/footer.php'); ?>

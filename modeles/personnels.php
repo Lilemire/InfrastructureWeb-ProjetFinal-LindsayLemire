@@ -57,7 +57,92 @@ class modeles_personnels_rdv {
         return $liste;
 
     }
+
+    public static function ajouter($date_heures, $prenom, $nom, $telelphone, $courriel) {
+        $message = "";
+
+        $mysqli = self::connecter();
+
+        if ($requete = $mysqli->prepare("INSERT INTO rendez_vous (date_heures) VALUES(?),
+        INSERT INTO clients (prenom, nom, telelphone, courriel) VALUES(?, ?, ?, ?)")) {
+
+            $requete->bind_param("ssddi", $date_heures, $prenom, $nom, $telelphone, $courriel);
+
+            if ($requete->execute()) {
+                $message = "Rendez-vous ajouté avec succès";
+            } else {
+                $message = "Erreur lors de l'ajout du rendez-vous" . $requete->error;
+            }
+
+            $requete->close();
+
+        } else {
+            echo "Une erreur a été détectée dans la requête utilisée : ";
+            echo $mysqli->error;
+            echo "<br>";
+            exit(); 
+        }
+
+        return $message;
+
+    }
+
+    public static function editer($date_heures, $prenom, $nom, $telelphone, $courriel) {
+        $message = "";
+
+        $mysqli = self::connecter();
+
+        if ($requete = $mysqli->prepare("UPDATE rendez_vous SET date_heures = ?),
+        (UPDATE clients SET prenom = ?, nom = ?, telelphone = ?, courriel = ?")) {
+
+            $requete->bind_param("ssddi", $date_heures, $prenom, $nom, $telelphone, $courriel);
+
+            if ($requete->execute()) {
+                $message = "Rendez-vous modifié avec succès";
+            } else {
+                $message = "Erreur lors de la modification du rendez-vous" . $requete->error;
+            }
+
+            $requete->close();
+
+        } else {
+            echo "Une erreur a été détectée dans la requête utilisée : ";
+            echo $mysqli->error;
+            echo "<br>";
+            exit(); 
+        }
+
+        return $message;
+
+    }
+
+    public static function supprimer($id) {
+        $message = "";
+
+        $mysqli = self::connecter();
+
+        if ($requete = $mysqli->prepare("DELETE FROM produits WHERE id=?")) {
+
+            $requete->bind_param("i", $id);
+
+            if ($requete->execute()) {
+                $message = "Rendez-vous supprimé avec succès";
+            } else {
+                $message = "Erreur lors de la suppression du rendez-vous" . $requete->error;
+            }
+
+            $requete->close();
+            
+    } else {
+        echo "Une erreur a été détectée dans la requête utilisée : ";
+        echo $mysqli->error;
+        echo "<br>";
+        exit(); 
+    }
+
+    return $message;
         
 }
 
 
+}

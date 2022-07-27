@@ -1,8 +1,15 @@
 <?php include_once('include/header.php'); 
 include_once('controlleurs/personnels.php');?>
 
+
+<?php
+  if(isset($_SESSION["utilisateur"])) {
+    ?>
+
   <!-- Page Content -->
   <div class="container">
+
+  
   
 	<h1 class="my-4">Administration - Module personnel</h1>
 	
@@ -17,5 +24,15 @@ include_once('controlleurs/personnels.php');?>
 	<a href="ajout_personnel.php" class="btn btn-primary" aria-label="Ajouter">Ajouter</a>
 	
   </div>
+
+  <?php
+    } else {
+  ?>
+    <h1 class="my-4">Vous n'êtes pas autorisé à voir cette page</h1>
+    <p>
+      <a href="index.php">Retour à la page d'accueil</a>
+    </p>
+    <?php
+    } ?>
 
 <?php include_once('include/footer.php'); ?>
