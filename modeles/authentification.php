@@ -34,9 +34,9 @@ class modele_authentification {
         if ($requete = $mysqli -> prepare("SELECT * FROM utilisateurs WHERE code_utilisateur=?")) {
             $requete -> bind_param("s", $code_utilisateur);
 
-            $requere -> execute();
+            $requete -> execute();
 
-            $result = $requete -> $get_result();
+            $result = $requete -> get_result();
 
             if($enregistrement = $result -> fetch_assoc()) {
                 $utilisateur = new modele_authentification($enregistrement['id'], $enregistrement['code_utilisateur'], $enregistrement['mot_de_passe'], $enregistrement['courriel']);

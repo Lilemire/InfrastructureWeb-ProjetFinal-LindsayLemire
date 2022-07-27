@@ -91,11 +91,50 @@ class modeles_nouvelles {
 
     }
 
-   /* public static function ObtenirLorem() {
+    public static function ObtenirLorem() {
         $liste = [];
         $mysqli = self::connecter();
 
-        $resultatRequete = $mysqli->query("")
-    }*/
+        $resultatRequete = $mysqli->query("SELECT * FROM `nouvelles` WHERE fk_categorie = 3 AND actif = 1;");
+
+        foreach ($resultatRequete as $ul) {
+            $liste [] = new modeles_nouvelles($ul['id'], $ul['titre'], $ul['description_courte'], $ul['description_longue'], $ul['date_nouvelle'], $ul['actif'], $ul['fk_categorie']);
+        
+        }
+
+        return $liste;
+
+    }
+
+    public static function ObtenirGeneral() {
+        $liste = [];
+        $mysqli = self::connecter();
+
+        $resultatRequete = $mysqli->query("SELECT * FROM `nouvelles` WHERE fk_categorie = 1 AND actif = 1;");
+
+        foreach ($resultatRequete as $ul) {
+            $liste [] = new modeles_nouvelles($ul['id'], $ul['titre'], $ul['description_courte'], $ul['description_longue'], $ul['date_nouvelle'], $ul['actif'], $ul['fk_categorie']);
+        
+        }
+
+        return $liste;
+
+    }
+
+    public static function ObtenirConsignes() {
+        $liste = [];
+        $mysqli = self::connecter();
+        
+        $resultatRequete = $mysqli->query("SELECT * FROM `nouvelles` WHERE fk_categorie = 2 AND actif = 1;");
+
+        foreach ($resultatRequete as $ul) {
+            $liste [] = new modeles_nouvelles($ul['id'], $ul['titre'], $ul['description_courte'], $ul['description_longue'], $ul['date_nouvelle'], $ul['actif'], $ul['fk_categorie']);
+        
+        }
+
+        return $liste;
+
+    }
+
 }
 ?>

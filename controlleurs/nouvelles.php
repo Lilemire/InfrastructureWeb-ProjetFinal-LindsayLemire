@@ -23,6 +23,17 @@ class ControlleursNouvelles {
         $nouvelles = modeles_nouvelles::ObtenirLorem();
         require 'vues/nouvelles/listelorem.php';
     }
+
+    function afficherListeGeneral() {
+        $nouvelles = modeles_nouvelles::ObtenirGeneral();
+        require 'vues/nouvelles/listegeneral.php';
+    }
+
+    function afficherListeConsignes() {
+        $nouvelles = modeles_nouvelles::ObtenirConsignes();
+        require 'vues/nouvelles/listeconsignes.php';
+    }
+
 }
 
 ?>

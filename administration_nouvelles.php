@@ -21,9 +21,10 @@
 		<p>
 			<a href="index.php">Retour à la page d'accueil</a>
 		</p>
+	</div>
 	<?php
-	}
+	} ?>
 
-  </div>
+
 
 <?php include_once('include/footer.php'); ?>

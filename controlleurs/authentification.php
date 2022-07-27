@@ -5,7 +5,7 @@ require_once './modeles/authentification.php';
 class ControlleurAuthentification {
 
     function ajouter() {
-        if (isset($_POST['utilisateur_ajout']) && isset($_POST['mot_de_passe_ajout']) && isset(&_POST['courriel_ajout'])) {
+        if (isset($_POST['utilisateur_ajout']) && isset($_POST['mot_de_passe_ajout']) && isset($_POST['courriel_ajout'])) {
             $message = modele_authentification::ajouter($_POST['utilisateur_ajout'], $_POST['mot_de_passe_ajout'], $_POST['courriel_ajout']);
             echo $message;
         } else {

@@ -10,6 +10,9 @@ include_once('controlleurs/nouvelles.php');?>
     <?php
     $controlleurNouvelles=new ControlleursNouvelles;
     $controlleurNouvelles->afficherCartesSurAccueil();
+    
+echo password_hash("test", PASSWORD_DEFAULT);
     ?>
+
 
 <?php include_once('include/footer.php'); ?>
