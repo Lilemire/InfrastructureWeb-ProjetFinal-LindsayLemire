@@ -25,6 +25,8 @@ class modeles_nouvelles {
 
         $mysqli = new mysqli(Db::$host, Db::$username, Db::$password, Db::$database);
 
+        mysqli_set_charset($mysqli, "utf8");
+
         if ($mysqli -> connect_errno) {
             echo "Échec de la connexion à la base de données MySQL: " . $mysqli -> connect_error;
             exit();

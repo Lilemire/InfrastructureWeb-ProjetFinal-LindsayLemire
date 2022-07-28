@@ -21,6 +21,8 @@ class modeles_personnels_rdv {
 
         $mysqli = new mysqli (Dbp::$host, Dbp::$username, Dbp::$password, Dbp::$database);
 
+        mysqli_set_charset($mysqli, "utf8");
+
         if ($mysqli -> connect_errno) {
             echo "Échec de la connexion à la base de données MySQL: " . $mysqli -> connect_error;
             exit();

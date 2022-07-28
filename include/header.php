@@ -1,3 +1,4 @@
+<?php include_once('controlleurs/authentification.php');?>
 <?php session_start() ?>
 
 <!DOCTYPE html>
@@ -79,6 +80,8 @@
 
 	  </div>
 	  <div class="modal-footer">
+     
+    <a type="submit" class="btn btn-primary" name="boutonInscription" href="inscription.php">Inscription</a>
 		<button type="submit" class="btn btn-primary" name="boutonConnextion">Connexion</button>
 		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
 	  </div>
